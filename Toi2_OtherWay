@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		Scanner stdIn = new Scanner(System.in);//入力部分
+		int N = stdIn.nextInt();
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for(int i = 0; i < N; i++){
+			list.add(stdIn.nextInt());
+		}
+		
+		//処理部分
+		for(int i = N; i >= 0; i--){ //正解数の数だけループ(上から)
+			int count = 0; //変数の初期化
+			for(int j = 0; j < list.size(); j++){ //リストの要素すべてにアクセスするループ
+				if(list.get(j) >= i){ //リストのj番目の値がiより大きいなら
+					count++;//カウントの値を一1増やす
+				}
+			}
+			if(count >= i){ //カウントの値がiより大きいなら
+				System.out.print(i);//出力する
+				break;//ループから抜ける
+			}
+		}
+		
+	}
+}
